@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION_NUMBER := "v1.0.1"
+const VERSION_NUMBER := "Royal Convergence - Alpha 1"
 
 ## Holds any value you may want accessible globally and quickly
 
@@ -8,6 +8,7 @@ func _ready() -> void:
 	join_toons()
 	import_custom_cogs()
 	Util.s_floor_started.connect(on_floor_start)
+	print("Game Version: %s" % VERSION_NUMBER)
 
 #region COGS:
 # Bodies:
@@ -22,16 +23,22 @@ var suits := LazyLoader.defer_dict({
 
 ## Player Characters
 const TOON_UNLOCK_ORDER : Array[PlayerCharacter] = [
-	preload('res://objects/player/characters/flippy.tres'),
-	preload('res://objects/player/characters/clerk_clara.tres'),
-	preload('res://objects/player/characters/julius_wheezer.tres'),
-	preload('res://objects/player/characters/barnacle_bessie.tres'),
-	preload('res://objects/player/characters/moe_zart.tres'),
+	#preload('res://objects/player/characters/king_pants.tres'),
+	#preload('res://objects/player/characters/flippy.tres'),
+	#preload('res://objects/player/characters/clerk_clara.tres'),
+	#preload('res://objects/player/characters/julius_wheezer.tres'),
+	#preload('res://objects/player/characters/barnacle_bessie.tres'),
+	#preload('res://objects/player/characters/moe_zart.tres'),
 	preload('res://objects/player/characters/testchar.tres')
 ]
 
 const CUSTOM_TOONS : Array[PlayerCharacter] = [
-	preload('res://objects/player/characters/king_pants.tres'),
+	preload("res://mod_assets/characters/king_pants.tres"),
+	preload("res://mod_assets/characters/smirky_bumberpop.tres"),
+	# stop crashing my game
+	preload("res://mod_assets/characters/transcendent_master.tres"),
+	#preload("res://mod_assets/characters/doctor_googlymoogly.tres"),
+	preload('res://objects/player/characters/sans.tres'),
 ]
 
 var ALL_TOONS : Array[PlayerCharacter] = []
@@ -50,6 +57,12 @@ func add_standard_cog(cog_dna: CogDNA) -> void:
 func remove_standard_cog(cog_dna: CogDNA) -> void:
 	GRUNT_COG_POOL.load().cogs.erase(cog_dna)
 
+func add_proxy(cog_dna : CogDNA) -> void:
+	MOD_COG_POOL.load().cogs.append(cog_dna)
+
+func remove_proxy(cog_dna : CogDNA) -> void:
+	MOD_COG_POOL.load().cogs.append(cog_dna)
+
 ## Custom Cogs
 var ALL_COGS_POOL := LazyLoader.defer("res://objects/cog/presets/pools/all_cogs.tres")
 const COG_SAVE_PATH := "user://save/custom_cogs/"
@@ -60,25 +73,33 @@ var custom_cog_head_directory := {}
 var custom_cog_tex_directory := {}
 
 func import_custom_cogs() -> void:
+	clear_custom_cogs()
 	if DirAccess.dir_exists_absolute(COG_SAVE_PATH):
 		import_cog_heads()
 		import_cog_head_textures()
 		import_cog_dna()
 
 func import_cog_dna() -> void:
-	clear_custom_cogs()
 	for file_name in DirAccess.get_files_at(COG_SAVE_PATH):
 		if not file_name.get_extension() == "tres":
 			continue
 		var loaded_file = ResourceLoader.load(COG_SAVE_PATH + file_name)
 		if loaded_file is CogDNA:
-			Globals.add_standard_cog(loaded_file)
+			if not loaded_file.is_mod_cog:
+				add_standard_cog(loaded_file)
+			else:
+				add_proxy(loaded_file)
 			loaded_custom_cogs.append(loaded_file)
 
 func clear_custom_cogs() -> void:
-	for cog : Variant in Globals.GRUNT_COG_POOL.load().cogs:
+	for cog : Variant in GRUNT_COG_POOL.load().cogs:
 		if cog.resource_path.begins_with("user://"):
-			Globals.remove_standard_cog(cog)
+			if not cog.is_mod_cog:
+				remove_standard_cog(cog)
+			else:
+				remove_proxy(cog)
+	custom_cog_head_directory.clear()
+	custom_cog_tex_directory.clear()
 
 func import_cog_heads() -> void:
 	for file in DirAccess.get_files_at(COG_SAVE_PATH):
@@ -88,8 +109,9 @@ func import_cog_heads() -> void:
 func import_head(file_path : String) -> PackedScene:
 	var node3d := Util.load_gltf_at_runtime(file_path)
 	if node3d == null:
-		print(":(")
+		print("Failed to load Cog head at runtime")
 	else:
+		print("Successfully loaded Cog head at path %s" % file_path)
 		var packed_head := pack_head(node3d)
 		packed_head.set_path(file_path)
 		custom_cog_head_directory[file_path] = packed_head
@@ -172,6 +194,7 @@ var ToonHeads := LazyLoader.defer_dict({
 	mouse = 'res://objects/toon/head/mouse_heads.tscn',
 	pig = 'res://objects/toon/head/pig_heads.tscn',
 	rabbit = 'res://objects/toon/head/rabbit_heads.tscn',
+	sans = 'res://objects/toon/head/sans_heads.tscn',
 })
 
 
@@ -188,6 +211,7 @@ enum ToonDial {
 
 var yelp := LazyLoader.defer_dict({
 	ToonDNA.ToonSpecies.BEAR : "res://audio/sfx/toon/bear/AV_bear_exclaim.ogg",
+	ToonDNA.ToonSpecies.SANS : "res://audio/sfx/toon/bear/AV_bear_exclaim.ogg",
 	ToonDNA.ToonSpecies.CAT : "res://audio/sfx/toon/cat/AV_cat_exclaim.ogg",
 	ToonDNA.ToonSpecies.DOG : "res://audio/sfx/toon/dog/AV_dog_exclaim.ogg",
 	ToonDNA.ToonSpecies.DUCK : "res://audio/sfx/toon/duck/AV_duck_exclaim.ogg",
@@ -199,6 +223,7 @@ var yelp := LazyLoader.defer_dict({
 })
 var howl := LazyLoader.defer_dict({
 	ToonDNA.ToonSpecies.BEAR : "res://audio/sfx/toon/bear/AV_bear_howl.ogg",
+	ToonDNA.ToonSpecies.SANS : "res://audio/sfx/toon/bear/AV_bear_howl.ogg",
 	ToonDNA.ToonSpecies.CAT : "res://audio/sfx/toon/cat/AV_cat_howl.ogg",
 	ToonDNA.ToonSpecies.DOG : "res://audio/sfx/toon/dog/AV_dog_howl.ogg",
 	ToonDNA.ToonSpecies.DUCK : "res://audio/sfx/toon/duck/AV_duck_howl.ogg",
@@ -210,6 +235,7 @@ var howl := LazyLoader.defer_dict({
 })
 var speak_long := LazyLoader.defer_dict({
 	ToonDNA.ToonSpecies.BEAR : "res://audio/sfx/toon/bear/AV_bear_long.ogg",
+	ToonDNA.ToonSpecies.SANS : "res://audio/sfx/toon/bear/AV_bear_long.ogg",
 	ToonDNA.ToonSpecies.CAT : "res://audio/sfx/toon/cat/AV_cat_long.ogg",
 	ToonDNA.ToonSpecies.DOG : "res://audio/sfx/toon/dog/AV_dog_long.ogg",
 	ToonDNA.ToonSpecies.DUCK : "res://audio/sfx/toon/duck/AV_duck_long.ogg",
@@ -221,6 +247,7 @@ var speak_long := LazyLoader.defer_dict({
 })
 var speak_med := LazyLoader.defer_dict({
 	ToonDNA.ToonSpecies.BEAR : "res://audio/sfx/toon/bear/AV_bear_med.ogg",
+	ToonDNA.ToonSpecies.SANS : "res://audio/sfx/toon/bear/AV_bear_med.ogg",
 	ToonDNA.ToonSpecies.CAT : "res://audio/sfx/toon/cat/AV_cat_med.ogg",
 	ToonDNA.ToonSpecies.DOG : "res://audio/sfx/toon/dog/AV_dog_med.ogg",
 	ToonDNA.ToonSpecies.DUCK : "res://audio/sfx/toon/duck/AV_duck_med.ogg",
@@ -232,6 +259,7 @@ var speak_med := LazyLoader.defer_dict({
 })
 var speak_short := LazyLoader.defer_dict({
 	ToonDNA.ToonSpecies.BEAR : "res://audio/sfx/toon/bear/AV_bear_short.ogg",
+	ToonDNA.ToonSpecies.SANS : "res://audio/sfx/toon/bear/AV_bear_short.ogg",
 	ToonDNA.ToonSpecies.CAT : "res://audio/sfx/toon/cat/AV_cat_short.ogg",
 	ToonDNA.ToonSpecies.DOG : "res://audio/sfx/toon/dog/AV_dog_short.ogg",
 	ToonDNA.ToonSpecies.DUCK : "res://audio/sfx/toon/duck/AV_duck_short.ogg",
@@ -243,6 +271,7 @@ var speak_short := LazyLoader.defer_dict({
 })
 var question := LazyLoader.defer_dict({
 	ToonDNA.ToonSpecies.BEAR : "res://audio/sfx/toon/bear/AV_bear_question.ogg",
+	ToonDNA.ToonSpecies.SANS : "res://audio/sfx/toon/bear/AV_bear_question.ogg",
 	ToonDNA.ToonSpecies.CAT : "res://audio/sfx/toon/cat/AV_cat_question.ogg",
 	ToonDNA.ToonSpecies.DOG : "res://audio/sfx/toon/dog/AV_dog_question.ogg",
 	ToonDNA.ToonSpecies.DUCK : "res://audio/sfx/toon/duck/AV_duck_question.ogg",
@@ -254,6 +283,7 @@ var question := LazyLoader.defer_dict({
 })
 var falling := LazyLoader.defer_dict({
 	ToonDNA.ToonSpecies.BEAR : "res://audio/sfx/sequences/elevator_trick/elevator_trick_fall-bear.ogg",
+	ToonDNA.ToonSpecies.SANS : "res://audio/sfx/sequences/elevator_trick/elevator_trick_fall-bear.ogg",
 	ToonDNA.ToonSpecies.CAT : "res://audio/sfx/sequences/elevator_trick/elevator_trick_fall-cat.ogg",
 	ToonDNA.ToonSpecies.DOG : "res://audio/sfx/sequences/elevator_trick/elevator_trick_fall-dog.ogg",
 	ToonDNA.ToonSpecies.DUCK : "res://audio/sfx/sequences/elevator_trick/elevator_trick_fall-duck.ogg",
@@ -289,6 +319,7 @@ func get_species_sfx(speech_type : ToonDial, dna : ToonDNA) -> AudioStream:
 ## Laff Meters
 var laff_meters := {
 	bear ="res://ui_assets/player_ui/laff_meter/bear.png",
+	sans ="res://ui_assets/player_ui/laff_meter/bear.png",
 	cat ="res://ui_assets/player_ui/laff_meter/cat.png",
 	dog ="res://ui_assets/player_ui/laff_meter/dog.png",
 	duck ="res://ui_assets/player_ui/laff_meter/duck.png",

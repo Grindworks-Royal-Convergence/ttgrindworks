@@ -4,6 +4,8 @@ class_name ToonAttack
 @export var icon: Texture2D
 @export var damage: int
 @export var crit_chance_mod := 1.0
+# The Smirky Curse is real...
+var accuracy = 999
 
 # Used in the UI to temporarily store the price of a gag
 var price: int
@@ -65,8 +67,8 @@ func press_button() -> void:
 	var button : Node3D = load(BUTTON_PROP).instantiate()
 	user.toon.left_hand_bone.add_child(button)
 	user.set_animation('button_press')
-	TaskMgr.delay(2.3).connect(AudioManager.play_sound.bind(load(PRESS_SFX)))
-	TaskMgr.delay(3.5).connect(button.queue_free)
+	Task.delay(2.3).connect(AudioManager.play_sound.bind(load(PRESS_SFX)))
+	Task.delay(3.5).connect(button.queue_free)
 
 #endregion
 

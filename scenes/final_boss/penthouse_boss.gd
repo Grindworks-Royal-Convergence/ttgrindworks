@@ -119,7 +119,7 @@ func set_caged_toon_dna(dna: ToonDNA) -> void:
 func get_caged_toon_dna() -> ToonDNA:
 	var unlock_index: int = SaveFileService.progress_file.characters_unlocked
 	var can_unlock: bool = Util.get_player().stats.character.character_name == Globals.TOON_UNLOCK_ORDER[unlock_index - 1].character_name
-	if Util.get_player().stats.character.character_name == Globals.TOON_UNLOCK_ORDER[5].character_name:
+	if Util.get_player().stats.character.character_name == Globals.TOON_UNLOCK_ORDER[0].character_name:
 		can_unlock = false
 	if not can_unlock:
 		var dna := ToonDNA.new()
@@ -208,12 +208,12 @@ func win_game() -> void:
 		LerpFunc.new(AudioManager.set_music_volume, 3.0, 0.0, -80.0)
 	]).as_tween(self)
 	await CameraTransition.from_current(self, %PaintingFocus, 3.0).s_done
-	await TaskMgr.delay(1.0)
+	await Task.delay(1.0)
 	%FadeOutLayer.show()
 	await Sequence.new([
 		LerpProperty.new(%BlackFade, ^"color:a", 2.0, 1.0).interp(Tween.EASE_IN, Tween.TRANS_QUAD)
 	]).as_tween(self).finished
-	await TaskMgr.delay(1.75)
+	await Task.delay(1.75)
 
 	AudioManager.stop_music()
 	AudioManager.set_music_volume(0.0)
@@ -231,7 +231,7 @@ func do_move_player_seq() -> void:
 	s_player_finished_walking.emit()
 
 func do_move_caged_toon_seq() -> void:
-	await TaskMgr.delay(0.5)
+	await Task.delay(0.5)
 	await caged_toon.move_to(%PlayerWinPos.global_position, FinalSpd).finished
 	await caged_toon.turn_to_position(%InFrontElevatorPos.global_position, 1.0)
 	await caged_toon.move_to(%InFrontElevatorPos.global_position, FinalSpd).finished
