@@ -9,6 +9,9 @@ var accuracy = 999
 
 # Used in the UI to temporarily store the price of a gag
 var price: int
+@export var price_mod := 0
+
+var button_position: int
 
 signal s_hit
 signal s_missed

@@ -9,7 +9,7 @@ const WARNING_COLOR := Color.RED
 @onready var track_label := %TrackName
 
 ## Locals
-var unlocked: int 
+@export var unlocked: int 
 var track: Track
 var gags: Array[ToonAttack]
 
@@ -60,6 +60,8 @@ func refresh():
 		if gags.size() >= i + 1 and i < unlocked:
 			var gag := gags[i]
 			var button: GagButton = gag_buttons[i]
+			# direct reference for certain items that need button regardless of position (Gag Experiment)
+			gag.button_position = i
 			button.image = gag.icon
 			
 			if button.pressed.is_connected(emit_gag):
@@ -69,6 +71,7 @@ func refresh():
 			var price := 0
 			if not button.pressed.is_connected(emit_gag):
 				price = i
+				price += gag.price_mod
 				price -= BattleService.ongoing_battle.battle_stats[Util.get_player()].gag_discount
 				button.mouse_entered.connect(ui_root.gag_hovered.bind(gag))
 				button.set_count(price)

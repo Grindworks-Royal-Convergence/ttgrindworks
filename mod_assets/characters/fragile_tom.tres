@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=11 format=3 uid="uid://croord5mmxeh"]
+
+[ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="1_o47pe"]
+[ext_resource type="Resource" uid="uid://cpg3x6cg4fvrw" path="res://objects/toon/clothing/shorts/denim_shorts.tres" id="2_n84rr"]
+[ext_resource type="Resource" uid="uid://ku2bgq1npgus" path="res://objects/toon/clothing/shirts/star_shirt.tres" id="4_lvhil"]
+[ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="4_wfiep"]
+[ext_resource type="Resource" uid="uid://tyi7ukxtvcgc" path="res://objects/battle/battle_resources/gag_loadouts/loadouts/standard_loadout.tres" id="8_sv5el"]
+[ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="9_lscvl"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="10_14qgk"]
+[ext_resource type="Resource" uid="uid://b52pii4rouksj" path="res://mod_assets/sans/Judgement.tres" id="11_suqr4"]
+
+[sub_resource type="Resource" id="Resource_ls34v"]
+script = ExtResource("1_o47pe")
+melancholic = true
+damage = 1.0
+defense = 1.0
+evasiveness = 1.0
+accuracy = 1.0
+speed = 1.0
+max_turns = 5
+max_hp = 1
+hp = 1
+turns = 3
+
+[sub_resource type="Resource" id="Resource_052nn"]
+script = ExtResource("4_wfiep")
+body_type = 1
+species = 1
+head_index = 0
+eyelashes = false
+skirt = false
+cheesy_effect = 0
+head_color = Color(0.856067, 0.856067, 0.856067, 1)
+torso_color = Color(0.856067, 0.856067, 0.856067, 1)
+leg_color = Color(0.856067, 0.856067, 0.856067, 1)
+shirt = ExtResource("4_lvhil")
+bottoms = ExtResource("2_n84rr")
+
+[resource]
+script = ExtResource("9_lscvl")
+character_name = "Fragile Tom"
+character_summary = "- Permanent 1 Laff
+- Most damage delayed to end of round (N/A)
+- Debuff stacks may stun Cog (N/A)
+- ANY damage is dodged with precise reaction
+- Starts with all tracks and 3 turns"
+dna = SubResource("Resource_052nn")
+gag_loadout = ExtResource("8_sv5el")
+starting_laff = 1
+starting_items = Array[ExtResource("10_14qgk")]([ExtResource("11_suqr4")])
+base_stats = SubResource("Resource_ls34v")
+random_character_stored_name = ""

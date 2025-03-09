@@ -120,7 +120,7 @@ func smirkybumberpop(player: Player) -> void:
 	player.stats.gag_vouchers['Sound'] = 2
 	
 func doctorgooglymoogly(player: Player) -> void:
-	generate_random_gags(player)
+	generate_random_gags(player, 1, 2)
 
 func transcendent_master(player: Player) -> void:
 	player.stats.money_gain_rate /= 2
@@ -129,7 +129,7 @@ func transcendent_master(player: Player) -> void:
 	player.stats.gags_unlocked['Drop'] = 1
 
 # please do not name your toon generate_random_gags i will cry bruh
-func generate_random_gags(player: Player) -> void:
+func generate_random_gags(player: Player, min_level: int = 1, level_up: int = 2) -> void:
 	# Get one random offense and one random support track
 	var offense_tracks: Array[Track] = []
 	var support_tracks: Array[Track] = []
@@ -153,7 +153,7 @@ func generate_random_gags(player: Player) -> void:
 	
 	# Start player off with anywhere from level 1-3 gags
 	for track in selected_tracks:
-		player.stats.gags_unlocked[track.track_name] += RandomService.randi_channel('true_random') % 2 + 1
+		player.stats.gags_unlocked[track.track_name] += RandomService.randi_channel('true_random') % level_up + min_level
 
 func sans(player: Player) -> void:
 	for track in player.stats.gags_unlocked.keys():

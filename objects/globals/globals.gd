@@ -37,8 +37,8 @@ const CUSTOM_TOONS : Array[PlayerCharacter] = [
 	preload("res://mod_assets/characters/smirky_bumberpop.tres"),
 	# stop crashing my game
 	preload("res://mod_assets/characters/transcendent_master.tres"),
-	#preload("res://mod_assets/characters/doctor_googlymoogly.tres"),
-	preload('res://objects/player/characters/sans.tres'),
+	preload("res://mod_assets/characters/doctor_googlymoogly.tres"),
+	preload("res://mod_assets/characters/sans.tres"),
 ]
 
 var ALL_TOONS : Array[PlayerCharacter] = []
@@ -140,6 +140,8 @@ func get_gag_color(gag : ToonAttack) -> Color:
 	elif gag is GagThrow: return Color('ed8a42')
 	elif gag is GagDrop: return Color('35f4ff')
 	return Color.WHITE
+	
+const COLOR_GAG_BUTTON := Color("00a1ff")
 
 ## DNA:
 var dna_colors := {

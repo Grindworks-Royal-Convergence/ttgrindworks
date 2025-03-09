@@ -22,7 +22,7 @@ const DISABLED_COLOR := Color('2e2e2e')
 signal s_enabled
 signal s_disabled
 
-var default_color := Color("00a1ff"):
+var default_color := Globals.COLOR_GAG_BUTTON:
 	set(x):
 		default_color = x
 		if not disabled:

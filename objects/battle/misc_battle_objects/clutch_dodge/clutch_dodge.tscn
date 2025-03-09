@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://ckg6eaqorc174"]
 
-[ext_resource type="Script" path="res://objects/battle/misc_battle_objects/clutch_dodge/clutch_dodge.gd" id="1_khdpb"]
-[ext_resource type="Shader" path="res://objects/pause_menu/canvas_blur_shader.gdshader" id="2_euxtx"]
-[ext_resource type="Script" path="res://mod_assets/sans/clutch_dodge/timing_game.gd" id="4_jj2nr"]
+[ext_resource type="Script" uid="uid://dwje2n0narm6o" path="res://objects/battle/misc_battle_objects/clutch_dodge/clutch_dodge.gd" id="1_khdpb"]
+[ext_resource type="Shader" uid="uid://dri3mi0a32658" path="res://objects/pause_menu/canvas_blur_shader.gdshader" id="2_euxtx"]
+[ext_resource type="Script" uid="uid://wmr3hq305cum" path="res://mod_assets/sans/clutch_dodge/timing_game.gd" id="4_jj2nr"]
 [ext_resource type="Texture2D" uid="uid://cvcj7n2tqymoi" path="res://mod_assets/sans/clutch_dodge/ut_targetscroll.png" id="5_ck6l3"]
 [ext_resource type="Texture2D" uid="uid://ueap1jalw7le" path="res://mod_assets/sans/clutch_dodge/ut_targetprompt.png" id="5_w8fev"]
 [ext_resource type="Texture2D" uid="uid://dbooht48surcl" path="res://mod_assets/sans/clutch_dodge/ut_knifeslice_fx.png" id="9_7qwg4"]
@@ -68,8 +68,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gpmgs"]
 _data = {
-"RESET": SubResource("Animation_klw45"),
-"pause_on": SubResource("Animation_yqy0f")
+&"RESET": SubResource("Animation_klw45"),
+&"pause_on": SubResource("Animation_yqy0f")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gq44h"]
@@ -174,7 +174,7 @@ color = Color(0, 0, 0, 0.34902)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_gpmgs")
+&"": SubResource("AnimationLibrary_gpmgs")
 }
 
 [node name="KnifeSlice" type="AnimatedSprite2D" parent="."]
