@@ -159,6 +159,7 @@ func attempt_revive(_hp: int) -> void:
 func add_money(amount: int) -> void:
 	money += amount * money_gain_rate
 	SaveFileService.progress_file.jellybeans_collected += amount
+	DiscordManager.update_presence()
 
 func has_item(item_name : String) -> bool:
 	for item in items:

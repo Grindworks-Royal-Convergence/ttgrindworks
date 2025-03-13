@@ -38,6 +38,7 @@ const SpeedOptions = [1.0, 1.25, 1.5, 1.75, 8.0]
 @export var auto_sprint := true
 @export var show_timer := false
 @export var skip_intro := false
+@export var discord_rpc := false
 @export var dev_tools := false
 
 ## CONTROLS
