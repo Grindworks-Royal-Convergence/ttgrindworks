@@ -49,7 +49,9 @@ class_name BattleStats
 		hp = clamp(x, 0, max_hp)
 		hp_changed.emit(hp)
 @export var turns := 1
-
+var hp_threshold := null # This is a threshold for the player to use a special ability
+var hp_threshold_active := false
+var hp_threshold_turns := 0
 
 var multipliers: Array[StatMultiplier] = []
 

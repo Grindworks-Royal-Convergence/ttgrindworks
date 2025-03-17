@@ -9,7 +9,8 @@ const OUTLINE_COLORS := {
 	"Sound": Color("0f1542"),
 	"Throw": Color("541e00"),
 	"Squirt": Color("6a024c"),
-	"Drop": Color("004347")
+	"Drop": Color("004347"),
+	"Script": Color("000000")
 }
 
 @onready var behind: Label3D = %Behind

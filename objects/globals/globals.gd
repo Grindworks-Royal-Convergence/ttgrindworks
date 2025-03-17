@@ -139,6 +139,7 @@ func get_gag_color(gag : ToonAttack) -> Color:
 	elif gag is GagSound: return Color('4f63d5')
 	elif gag is GagThrow: return Color('ed8a42')
 	elif gag is GagDrop: return Color('35f4ff')
+	elif gag is GagScript: return Color('000000')
 	return Color.WHITE
 
 ## DNA:
