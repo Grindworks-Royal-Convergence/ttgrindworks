@@ -90,6 +90,8 @@ var trap_needs_lure := true
 var force_tightened_security := false
 ## Damage immunity from light-based obstacles, such as spotlights and goon beams.
 var immune_to_light_damage := false
+## Damage immunity from stompers and other crush-based obstacles
+var immune_to_crush_damage := false
 var laff_lock_enabled := false:
 	set(x):
 		laff_lock_enabled = x
@@ -440,6 +442,10 @@ func attempt_clutch() -> bool:
 
 func quick_heal(amount: int) -> void:
 	var pre_hp := stats.hp
+	# Apply healing effectiveness if we have it
+	if amount > 0 and not is_equal_approx(stats.healing_effectiveness, 1.0):
+		amount = roundi(amount * stats.healing_effectiveness)
+
 	stats.hp += amount
 	var diff := stats.hp - pre_hp
 	if diff == 0:
@@ -448,7 +454,6 @@ func quick_heal(amount: int) -> void:
 		if state == PlayerState.WALK:
 			do_invincibility_frames()
 		Util.do_3d_text(self,str(diff))
-		
 	else:
 		Util.do_3d_text(self, "+" + str(diff), Color.GREEN, Color.DARK_GREEN)
 
