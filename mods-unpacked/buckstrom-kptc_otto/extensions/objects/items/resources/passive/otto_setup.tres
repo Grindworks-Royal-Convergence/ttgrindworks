@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dhjw10n6tdokh"]
+
+[ext_resource type="Script" uid="uid://dbcnf4j8scn2q" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/objects/items/custom/item_otto_setup.gd" id="1_pt26q"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_i0atx"]
+
+[resource]
+script = ExtResource("2_i0atx")
+item_script = ExtResource("1_pt26q")
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+metadata/_custom_type_script = "uid://combwqypom1ru"

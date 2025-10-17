@@ -1,27 +1,17 @@
-[gd_scene load_steps=40 format=3 uid="uid://chtdvbuf0ivvt"]
+[gd_scene load_steps=21 format=3 uid="uid://chtdvbuf0ivvt"]
 
 [ext_resource type="PackedScene" uid="uid://cv2afui5p28af" path="res://objects/modules/mint/base_rooms/mint_diamond_room.tscn" id="1_h2rqk"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_alx7d"]
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_okjj0"]
 [ext_resource type="Resource" uid="uid://q8ev1hag3yvy" path="res://objects/cog/presets/sellbot/mr_hollywood.tres" id="4_16xtn"]
 [ext_resource type="PackedScene" uid="uid://wpoc3xs1yy0" path="res://objects/player/player.tscn" id="4_fefq8"]
-[ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="5_wgpvb"]
-[ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="6_sp5d7"]
-[ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="7_42kli"]
-[ext_resource type="Script" uid="uid://dfqwh4jmdy0iw" path="res://objects/toon/clothing/toon_shirt.gd" id="8_suqae"]
-[ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="9_4i7n6"]
-[ext_resource type="Resource" uid="uid://5dld88ul3rb5" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/trap.tres" id="11_hy8sk"]
-[ext_resource type="Resource" uid="uid://dqldfsmn7g606" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/lure.tres" id="12_ex1ui"]
-[ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="13_d0tkq"]
-[ext_resource type="Resource" uid="uid://cvaos6ucteefy" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/sound.tres" id="13_eed60"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="6_66vty"]
+[ext_resource type="Resource" uid="uid://ceo2pq0ndl2r5" path="res://mods-unpacked/buckstrom-kptc_otto/KPTC_OTTO.tres" id="7_7y5tt"]
+[ext_resource type="Resource" uid="uid://dhjw10n6tdokh" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/objects/items/resources/passive/otto_setup.tres" id="10_1p8ro"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="14_7upve"]
-[ext_resource type="Resource" uid="uid://0528viy6hdsv" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/throw.tres" id="14_ww67o"]
-[ext_resource type="Resource" uid="uid://cyiwxplege133" path="res://objects/items/resources/passive/emergency_unite.tres" id="15_8ctgi"]
-[ext_resource type="Resource" uid="uid://dvxiqtapdvmj4" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/squirt.tres" id="15_h0hwy"]
-[ext_resource type="Resource" uid="uid://lf7h5xkbt2op" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/drop.tres" id="16_diqeu"]
 [ext_resource type="Script" uid="uid://dfa2ic7ngy7sg" path="res://objects/quests/quest.gd" id="16_qov7a"]
 [ext_resource type="Script" uid="uid://b68uqtpqs73wk" path="res://objects/player/player_stats.gd" id="17_8fcps"]
-[ext_resource type="Script" uid="uid://ckypnf7t805p3" path="res://objects/battle/battle_resources/gag_loadouts/gag_loadout.gd" id="17_aepo7"]
+[ext_resource type="Resource" uid="uid://pbiyi7ubygck" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/objects/items/resources/passive/otto_boost.tres" id="22_ouruu"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="23_16xtn"]
 [ext_resource type="Resource" uid="uid://c8xt0naden1hv" path="res://objects/items/resources/accessories/shoes/super_toon_boots.tres" id="24_16xtn"]
 [ext_resource type="Resource" uid="uid://klobdj40hb36" path="res://objects/items/resources/accessories/backpacks/medium_pouch.tres" id="25_1xuw6"]
@@ -32,57 +22,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_5pfdn"]
 size = Vector3(14.6639, 5.65576, 10.2309)
 
-[sub_resource type="Resource" id="Resource_4yraj"]
-script = ExtResource("5_wgpvb")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kprq4"]
-load_path = "res://.godot/imported/desat_shorts_10_2.png-006293ca57932ca262d7592d1c1d61cb.ctex"
-
-[sub_resource type="Resource" id="Resource_b54tc"]
-script = ExtResource("6_sp5d7")
-texture = SubResource("CompressedTexture2D_kprq4")
-base_color = Color(0.71, 0.231, 0.435, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d57wk"]
-load_path = "res://.godot/imported/desat_shirt_4.png-bfcf4c92cccaf058f4524676d1ca500a.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ees5g"]
-load_path = "res://.godot/imported/desat_sleeve_4.png-dd69ccf8bbf4668cf004b15195fc4a20.ctex"
-
-[sub_resource type="Resource" id="Resource_jt2lq"]
-script = ExtResource("8_suqae")
-shirt_texture = SubResource("CompressedTexture2D_d57wk")
-sleeve_texture = SubResource("CompressedTexture2D_ees5g")
-base_color = Color(0.992157, 0.478431, 0.168627, 1)
-sleeve_color = Color(0.992157, 0.478431, 0.168627, 1)
-
-[sub_resource type="Resource" id="Resource_h5kab"]
-script = ExtResource("7_42kli")
-head_index = 2
-eyelashes = false
-head_color = Color(0.345098, 0.819608, 0.952941, 1)
-torso_color = Color(0.345098, 0.819608, 0.952941, 1)
-leg_color = Color(0.345098, 0.819608, 0.952941, 1)
-shirt = SubResource("Resource_jt2lq")
-bottoms = SubResource("Resource_b54tc")
-
-[sub_resource type="Resource" id="Resource_s4oci"]
-script = ExtResource("17_aepo7")
-loadout = Array[ExtResource("9_4i7n6")]([ExtResource("11_hy8sk"), ExtResource("12_ex1ui"), ExtResource("13_eed60"), ExtResource("14_ww67o"), ExtResource("15_h0hwy"), ExtResource("16_diqeu")])
-
-[sub_resource type="Resource" id="Resource_br8l0"]
-script = ExtResource("13_d0tkq")
-character_summary = "- Can revive once before going sad
-- 5% base Throw boost
-- Starts with Toon-Up and Throw"
-dna = SubResource("Resource_h5kab")
-gag_loadout = SubResource("Resource_s4oci")
-starting_items = Array[ExtResource("14_7upve")]([ExtResource("15_8ctgi")])
-base_stats = SubResource("Resource_4yraj")
-
 [sub_resource type="Resource" id="Resource_vs51t"]
 script = ExtResource("17_8fcps")
 money = 30
+items = Array[ExtResource("14_7upve")]([ExtResource("22_ouruu"), ExtResource("10_1p8ro")])
 gags_unlocked = Dictionary[String, int]({
 "Drop": 7,
 "Lure": 7,
@@ -141,7 +84,7 @@ toonups = Dictionary[int, int]({
 6: 10
 })
 gag_cap = 100
-character = SubResource("Resource_br8l0")
+character = ExtResource("7_7y5tt")
 pink_slips = 10
 throw_heal_boost = 0.1
 damage = 2.0

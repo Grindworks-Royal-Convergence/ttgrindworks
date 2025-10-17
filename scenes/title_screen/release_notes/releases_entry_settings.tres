@@ -5,5 +5,3 @@
 [resource]
 line_spacing = 1.0
 font = ExtResource("1_nwgb8")
-font_size = 20
-font_color = Color(0, 0, 0, 1)

@@ -229,6 +229,7 @@ func round_over():
 			battle_node.reposition_cogs()
 			has_moved.clear()
 			is_round_ongoing = false
+		
 
 func end_battle() -> void:
 	# End battle

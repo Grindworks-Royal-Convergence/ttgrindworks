@@ -37,5 +37,4 @@ grow_horizontal = 0
 texture_normal = ExtResource("3_kkrbn")
 texture_pressed = ExtResource("4_l5xvc")
 texture_hover = ExtResource("5_sxu28")
-hover_db_offset = 6.0
-press_db_offset = 0.0
+font_size = 36.0

@@ -1,0 +1,248 @@
+[gd_scene load_steps=19 format=3 uid="uid://bx6u2kf156jt5"]
+
+[ext_resource type="Texture2D" uid="uid://tof5t2tyhipm" path="res://ui_assets/battle/target_select/BtlPick_TAB.png" id="1_namsi"]
+[ext_resource type="Script" uid="uid://yowoggk7vab6" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/objects/battle/battle_ui/target_select_otto.gd" id="2_namsi"]
+[ext_resource type="Texture2D" uid="uid://dvpxq5ysoixom" path="res://ui_assets/battle/target_select/ToonBtl_Status_BG_norect.png" id="3_rndj1"]
+[ext_resource type="Texture2D" uid="uid://dbec0grbtboqd" path="res://ui_assets/battle/gags/inventory_megaphone.png" id="4_ucgjj"]
+[ext_resource type="Texture2D" uid="uid://6qwefacmqel2" path="res://ui_assets/battle/target_select/PckMn_Select_Tab.png" id="5_ihuxf"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="6_k805g"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="7_hc5aa"]
+[ext_resource type="Texture2D" uid="uid://0lv4kwjuuia2" path="res://ui_assets/battle/target_select/PckMn_BackBtn.png" id="8_0iy3x"]
+[ext_resource type="Texture2D" uid="uid://des8aw3sqa4ck" path="res://ui_assets/battle/target_select/PckMn_BackBtn_Dn.png" id="9_87fbl"]
+[ext_resource type="Texture2D" uid="uid://2ejymu72us5x" path="res://ui_assets/battle/target_select/PckMn_BackBtn_Rlvr.png" id="10_ogqon"]
+[ext_resource type="Texture2D" uid="uid://duj24dq1hgj8u" path="res://ui_assets/battle/target_select/PckMn_Arrow_Up.png" id="11_0ne7m"]
+[ext_resource type="Texture2D" uid="uid://bfm26ms0aoov0" path="res://ui_assets/battle/target_select/PckMn_Arrow_Dn.png" id="12_w6ns6"]
+[ext_resource type="Texture2D" uid="uid://cthojhm1w7mns" path="res://ui_assets/battle/target_select/PckMn_Arrow_Rlvr.png" id="13_ha5qf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pxipy"]
+font = ExtResource("6_k805g")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_namsi"]
+font = ExtResource("6_k805g")
+font_size = 17
+font_color = Color(0.9160843, 0.88727635, 0.7893482, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.47058824)
+
+[sub_resource type="LabelSettings" id="LabelSettings_31qdt"]
+line_spacing = -6.0
+font = ExtResource("6_k805g")
+font_size = 14
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.6509804)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqxli"]
+font = ExtResource("6_k805g")
+font_size = 14
+font_color = Color(0, 0, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rndj1"]
+line_spacing = -6.0
+font = ExtResource("6_k805g")
+font_size = 20
+font_color = Color(1, 0.75, 0.75, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.6509804)
+
+[node name="TargetSelectOtto" type="TextureRect"]
+self_modulate = Color(0.16357803, 0.5354827, 0.82032967, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -68.0
+offset_right = 125.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("1_namsi")
+script = ExtResource("2_namsi")
+
+[node name="GagPanel" type="TextureRect" parent="."]
+self_modulate = Color(0.5, 0.9, 0.5, 1)
+layout_mode = 0
+offset_left = 306.0
+offset_top = 32.0
+offset_right = 409.0
+offset_bottom = 97.0
+texture = ExtResource("3_rndj1")
+
+[node name="GagImage" type="TextureRect" parent="GagPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.78574
+offset_top = -31.642849
+offset_right = 25.214264
+offset_bottom = 10.357151
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ucgjj")
+expand_mode = 1
+
+[node name="MiddleTab" type="TextureRect" parent="."]
+self_modulate = Color(0.59669775, 0.73557454, 0.7798597, 1)
+layout_mode = 0
+offset_left = 99.0
+offset_top = 40.0
+offset_right = 312.0
+offset_bottom = 80.0
+texture = ExtResource("5_ihuxf")
+
+[node name="TargetCenterLabel" type="Label" parent="MiddleTab"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Which Cog?"
+label_settings = SubResource("LabelSettings_pxipy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GagPointLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.642853
+offset_top = -40.99999
+offset_right = 52.357147
+offset_bottom = -18.999989
+grow_horizontal = 2
+grow_vertical = 2
+text = "Points: 10/10"
+label_settings = SubResource("LabelSettings_namsi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GagCostLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 107.14288
+offset_top = 1.857132
+offset_right = 196.85718
+offset_bottom = 22.857132
+grow_horizontal = 2
+grow_vertical = 2
+text = "Gag Cost: 0"
+label_settings = SubResource("LabelSettings_31qdt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back" parent="Buttons" instance=ExtResource("7_hc5aa")]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 39.0
+offset_right = 95.0
+offset_bottom = 92.0
+texture_normal = ExtResource("8_0iy3x")
+texture_pressed = ExtResource("9_87fbl")
+texture_hover = ExtResource("10_ogqon")
+font_size = 36.0
+
+[node name="Label2" type="Label" parent="Buttons/Back"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 15.0
+offset_right = 63.0
+offset_bottom = 38.0
+text = "BACK"
+label_settings = SubResource("LabelSettings_wqxli")
+
+[node name="Arrows" type="HBoxContainer" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 3.57142
+offset_right = 375.0
+offset_bottom = 3.57142
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="ArrowButton" parent="Buttons/Arrows" instance=ExtResource("7_hc5aa")]
+custom_minimum_size = Vector2(58, 40)
+layout_mode = 2
+texture_normal = ExtResource("11_0ne7m")
+texture_pressed = ExtResource("12_w6ns6")
+texture_hover = ExtResource("13_ha5qf")
+texture_disabled = null
+stretch_mode = 4
+font_size = 36.0
+
+[node name="CostLabel" type="Label" parent="Buttons/Arrows/ArrowButton"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.57144
+offset_top = -17.857145
+offset_right = 46.142853
+offset_bottom = 3.1428585
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_31qdt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AddLabel" type="Label" parent="Buttons/Arrows/ArrowButton"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.428585
+offset_top = -47.142853
+offset_right = 43.285706
+offset_bottom = -22.142853
+grow_horizontal = 2
+grow_vertical = 2
+text = "+1"
+label_settings = SubResource("LabelSettings_rndj1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Buttons/Back" to="." method="arrow_pressed" binds= [-1, 0]]

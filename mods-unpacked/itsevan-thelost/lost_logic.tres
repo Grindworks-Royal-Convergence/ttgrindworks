@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bmujfvitpbclh"]
+
+[ext_resource type="Script" uid="uid://cv6ri3mixi8n1" path="res://mods-unpacked/itsevan-thelost/item_lost_logic.gd" id="1_8coc4"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_fm43o"]
+
+[resource]
+script = ExtResource("1_fm43o")
+item_tags = null
+qualitoon = 0
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 1.0
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = ""
+item_description = ""
+big_description = ""
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("1_8coc4")
+remember_item = true
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://combwqypom1ru"

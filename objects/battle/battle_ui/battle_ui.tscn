@@ -319,6 +319,7 @@ script = ExtResource("14_j8cyf")
 
 [node name="AttackLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -467,6 +468,8 @@ offset_right = -27.0
 offset_bottom = -47.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(900, 96)
 theme_override_constants/separation = 10
 alignment = 2
 script = ExtResource("138_dqsj0")

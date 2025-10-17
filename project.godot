@@ -15,8 +15,8 @@ warnings/check_angle_interpolation_type_conflicting=false
 
 [application]
 
-config/name="Toontown: The Grindworks"
-config/version="1.2.0"
+config/name="Toontown: The Grindworks - Royal Convergence"
+config/version="1.2.0.v001"
 run/main_scene="uid://lxi0qm8aebs1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://cgljrd8dis8an"
@@ -53,7 +53,7 @@ mouse_cursor/custom_image="res://ui_assets/cursor.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/graphedit2/plugin.cfg", "res://addons/intervals/plugin.cfg", "res://addons/mod_loader/_export_plugin/plugin.cfg", "res://addons/node_screenshot_tool/plugin.cfg", "res://addons/scene_lock/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/task/plugin.cfg", "res://addons/toonlike_tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/graphedit2/plugin.cfg", "res://addons/intervals/plugin.cfg", "res://addons/mod_loader/_export_plugin/plugin.cfg", "res://addons/mod_tool/plugin.cfg", "res://addons/node_screenshot_tool/plugin.cfg", "res://addons/scene_lock/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/task/plugin.cfg", "res://addons/toonlike_tools/plugin.cfg")
 
 [file_customization]
 

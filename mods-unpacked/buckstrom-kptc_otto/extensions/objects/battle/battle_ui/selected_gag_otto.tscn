@@ -1,0 +1,148 @@
+[gd_scene load_steps=14 format=3 uid="uid://dh1b6scps71k8"]
+
+[ext_resource type="Texture2D" uid="uid://brfy5w0id0kio" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/ui_assets/battle/queued_gags/gag_panel.png" id="1_4uac7"]
+[ext_resource type="Script" uid="uid://0cddqcxf5ffv" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/objects/battle/battle_ui/selected_gag_otto.gd" id="2_eynlm"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="2_k7jq7"]
+[ext_resource type="Texture2D" uid="uid://bl4jam52awobx" path="res://ui_assets/battle/queued_gags/PartyPlanner_CancelButtonUp.png" id="3_3ett7"]
+[ext_resource type="Texture2D" uid="uid://d1llij1coyt2e" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/ui_assets/battle/queued_gags/PartyPlanner_CancelButtonUp.png" id="3_pbul3"]
+[ext_resource type="Texture2D" uid="uid://cijunm56f5hq2" path="res://ui_assets/battle/queued_gags/PartyPlanner_CancelButtonDown.png" id="4_ip2st"]
+[ext_resource type="Texture2D" uid="uid://37i6lwsxr1pq" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/ui_assets/battle/queued_gags/PartyPlanner_CancelButtonDown.png" id="4_ugpsq"]
+[ext_resource type="Texture2D" uid="uid://c21a3bcriavsy" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/ui_assets/battle/queued_gags/PartyPlanner_CancelButtonRollover.png" id="5_irahp"]
+[ext_resource type="Texture2D" uid="uid://ctnar4np8tsb3" path="res://ui_assets/battle/queued_gags/PartyPlanner_CancelButtonRollover.png" id="5_t8rig"]
+[ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="6_pbul3"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="10_4lvdp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ugpsq"]
+line_spacing = 1.5
+font = ExtResource("6_pbul3")
+font_size = 22
+font_color = Color(0.8117647, 0.8392157, 0.9647059, 1)
+outline_size = 4
+outline_color = Color(0.066855915, 0.106332876, 0.22531667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eynlm"]
+line_spacing = -5.0
+font = ExtResource("10_4lvdp")
+font_size = 14
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.6509804)
+
+[node name="SelectedGag" type="TextureRect"]
+texture = ExtResource("1_4uac7")
+script = ExtResource("2_eynlm")
+
+[node name="GagIcon" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="RolledGagIcon" type="TextureRect" parent="."]
+self_modulate = Color(0.42659998, 0.6385834, 0.79, 0.8627451)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -35.0
+offset_right = 4.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="GeneralButton" parent="." instance=ExtResource("2_k7jq7")]
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 16.0
+offset_bottom = 18.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_pbul3")
+texture_pressed = ExtResource("4_ugpsq")
+texture_hover = ExtResource("5_irahp")
+font_size = 36.0
+
+[node name="TargetButton" parent="." instance=ExtResource("2_k7jq7")]
+visible = false
+self_modulate = Color(0.3529412, 0.8784314, 1, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = -26.000002
+offset_right = -12.0
+offset_bottom = 9.999998
+grow_horizontal = 0
+rotation = 0.7086037
+texture_normal = ExtResource("3_3ett7")
+texture_pressed = ExtResource("4_ip2st")
+texture_hover = ExtResource("5_t8rig")
+font_size = 36.0
+
+[node name="CancelButton" parent="." instance=ExtResource("2_k7jq7")]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_3ett7")
+texture_pressed = ExtResource("4_ip2st")
+texture_hover = ExtResource("5_t8rig")
+font_size = 36.0
+
+[node name="LetterLabel" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 39.0
+offset_top = 29.0
+offset_right = 68.0
+offset_bottom = 60.0
+text = "A"
+label_settings = SubResource("LabelSettings_ugpsq")
+
+[node name="TargetLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 69.0
+text = "x---"
+label_settings = SubResource("LabelSettings_eynlm")
+horizontal_alignment = 1
+
+[node name="RolledTargetLabel" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0.50980395)
+layout_mode = 0
+offset_left = -10.0
+offset_top = -25.0
+offset_right = 38.0
+offset_bottom = -4.0
+text = "x---"
+label_settings = SubResource("LabelSettings_eynlm")
+horizontal_alignment = 1

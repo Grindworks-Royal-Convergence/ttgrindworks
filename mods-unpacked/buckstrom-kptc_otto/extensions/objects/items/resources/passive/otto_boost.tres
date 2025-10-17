@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://pbiyi7ubygck"]
+
+[ext_resource type="Script" uid="uid://bcxingsvvgw73" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/objects/items/custom/item_otto_boost.gd" id="1_mqtpp"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_ryope"]
+
+[resource]
+script = ExtResource("2_ryope")
+qualitoon = 4
+item_name = "Otto Boost"
+big_description = "Unique to Otto Toon"
+item_script = ExtResource("1_mqtpp")
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)

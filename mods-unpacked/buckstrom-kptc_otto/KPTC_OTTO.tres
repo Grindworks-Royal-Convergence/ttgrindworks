@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=17 format=3 uid="uid://ceo2pq0ndl2r5"]
+
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_ks767"]
+[ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="2_bacxq"]
+[ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="3_ocovl"]
+[ext_resource type="Texture2D" uid="uid://bc47fggqh8gbp" path="res://models/toon/textures/clothes/shorts/desat_shorts_2.png" id="4_ks767"]
+[ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="5_1gpjo"]
+[ext_resource type="Script" uid="uid://dfqwh4jmdy0iw" path="res://objects/toon/clothing/toon_shirt.gd" id="6_l32en"]
+[ext_resource type="Texture2D" uid="uid://l5nmqw1hw5ti" path="res://models/toon/textures/clothes/shirts/desat_shirt_2_2.png" id="7_iaptu"]
+[ext_resource type="Texture2D" uid="uid://dh7dyokcfyw43" path="res://models/toon/textures/clothes/shirts/desat_sleeve_1.png" id="8_ocovl"]
+[ext_resource type="Resource" uid="uid://tyi7ukxtvcgc" path="res://objects/battle/battle_resources/gag_loadouts/loadouts/standard_loadout.tres" id="9_y0kke"]
+[ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="10_3ijm7"]
+[ext_resource type="Resource" uid="uid://pbiyi7ubygck" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/objects/items/resources/passive/otto_boost.tres" id="11_ocovl"]
+[ext_resource type="Resource" uid="uid://dhjw10n6tdokh" path="res://mods-unpacked/buckstrom-kptc_otto/extensions/objects/items/resources/passive/otto_setup.tres" id="12_gf1f2"]
+
+[sub_resource type="Resource" id="Resource_4mp7f"]
+script = ExtResource("2_bacxq")
+damage = 0.65
+defense = 1.1
+evasiveness = 1.05
+max_turns = 6
+turns = 2
+
+[sub_resource type="Resource" id="Resource_gf1f2"]
+script = ExtResource("3_ocovl")
+texture = ExtResource("4_ks767")
+base_color = Color(0.4268849, 0.3445471, 0.13439983, 1)
+
+[sub_resource type="Resource" id="Resource_1gpjo"]
+script = ExtResource("6_l32en")
+shirt_texture = ExtResource("7_iaptu")
+sleeve_texture = ExtResource("8_ocovl")
+base_color = Color(0.26666668, 0.3137255, 0.68235296, 1)
+sleeve_color = Color(0.8666667, 0.24705882, 0.2627451, 1)
+
+[sub_resource type="Resource" id="Resource_pe046"]
+script = ExtResource("5_1gpjo")
+body_type = 2
+leg_type = 2
+species = 0
+head_index = 2
+eyelashes = false
+head_color = Color(0.7764706, 0.8509804, 0.4509804, 1)
+torso_color = Color(0.7764706, 0.8509804, 0.4509804, 1)
+leg_color = Color(0.7764706, 0.8509804, 0.4509804, 1)
+shirt = SubResource("Resource_1gpjo")
+bottoms = SubResource("Resource_gf1f2")
+
+[resource]
+script = ExtResource("10_3ijm7")
+character_name = "Otto Toon"
+character_summary = "Moves become Auto Moves
+Auto Moves aim Gags for free
+Spend points to change Auto Move's target...
+...and its level or track (but not both!)
+Start with 2 Auto Moves"
+character_blurb = "Is he mammal or machine? The efficiently magnificent Otto Toon's Auto Moves can throw the Cogs a real pitch regardless."
+dna = SubResource("Resource_pe046")
+gag_loadout = ExtResource("9_y0kke")
+starting_laff = 30
+starting_items = Array[ExtResource("1_ks767")]([ExtResource("11_ocovl"), ExtResource("12_gf1f2")])
+base_stats = SubResource("Resource_4mp7f")
+starting_gags = Dictionary[String, int]({
+"Drop": 2,
+"Lure": 2,
+"Sound": 2,
+"Squirt": 2,
+"Throw": 2,
+"Trap": 2
+})
+additional_stats = Dictionary[String, Variant]({
+"luck": 1.1
+})
