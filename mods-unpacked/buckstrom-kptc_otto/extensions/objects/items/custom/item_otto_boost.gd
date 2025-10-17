@@ -1,5 +1,4 @@
 extends ItemScript
-class_name OttoBoost
 
 #const DROP_GAGS := preload("res://objects/battle/battle_resources/gag_loadouts/gag_tracks/drop.tres")
 const AUTO_MOVE := preload("res://mods-unpacked/buckstrom-kptc_otto/extensions/objects/battle/battle_resources/status_effects/resources/auto_move.tres")
@@ -19,7 +18,7 @@ var target_select: Node
 
 var jackpot := false
 
-signal s_auto_move_created(move: SelectedGagOtto)
+signal s_auto_move_created(move)
 
 func on_collect(_item: Item, _object: Node3D) -> void:
 	var _player: Player
@@ -33,6 +32,9 @@ func on_load(item: Item) -> void:
 	on_collect(item, null)
 
 func setup(_player: Player) -> void:
+	# OTTO ONLINE
+	get_node("/root/ModLoader/buckstrom-kptc_otto/KPTCglobal").otto_boost = self
+	print("OTTO ONLINE")
 	player = _player
 	BattleService.s_battle_started.connect(battle_started)
 	BattleService.s_round_ended.connect(new_round)
@@ -60,7 +62,7 @@ func battle_started(_manager: BattleManager) -> void:
 	manager.battle_ui.gag_order_menu.scale = Vector2(1.25, 1.25)
 	for old_sg in manager.battle_ui.gag_order_menu.get_children():
 		old_sg.queue_free()
-		var otto_sg: SelectedGagOtto = OTTO_SELECTED_GAG.instantiate()
+		var otto_sg = OTTO_SELECTED_GAG.instantiate()
 		manager.battle_ui.gag_order_menu.add_child(otto_sg)
 		manager.battle_ui.gag_order_menu.panels.append(otto_sg)
 	for otto_sg in manager.battle_ui.gag_order_menu.panels:
@@ -103,7 +105,7 @@ func new_gags() -> void:
 		manager.battle_ui.turn += 1
 		new_gag()
 
-func new_move(move: SelectedGagOtto) -> void:
+func new_move(move) -> void:
 	var count : int = manager.battle_ui.gag_order_menu.panels.size()
 	await get_tree().process_frame
 	var gag_order_menu = move.get_parent()
@@ -117,6 +119,7 @@ func new_move(move: SelectedGagOtto) -> void:
 	#move.get_node("LetterLabel").text = char(65 + i)
 	move.get_node("LetterLabel").text = str(count + 1)
 	new_gag()
+	update_ui_gags()
 	edit_auto_move(count)
 
 func new_gag() -> void:
@@ -134,7 +137,6 @@ func new_gag() -> void:
 	rolled_gags.set(gag, lvl)
 	outgoing_gags.append(gag)
 	overrides.append(Vector2i(-1, -1))
-	update_ui_gags()
 
 func apply_statuses() -> void:
 	for i in range(manager.battle_stats[player].turns):
@@ -167,10 +169,9 @@ func update_ui_gags() -> void:
 		var gag: ToonAttack = outgoing_gags[idx]
 		manager.battle_ui.selected_gags.append(gag)
 		var panel = manager.battle_ui.gag_order_menu.get_children()[idx]
-		if panel is SelectedGagOtto:
-			panel.get_node("TargetLabel").text = get_atk_string(idx)
-			panel.get_node("RolledGagIcon").texture = rolled_gags.keys()[idx].icon
-			panel.get_node("RolledTargetLabel").text = get_target_string(rolled_gags.keys()[idx])
+		panel.get_node("TargetLabel").text = get_atk_string(idx)
+		panel.get_node("RolledGagIcon").texture = rolled_gags.keys()[idx].icon
+		panel.get_node("RolledTargetLabel").text = get_target_string(rolled_gags.keys()[idx])
 	manager.battle_ui.gag_order_menu.refresh_gags(outgoing_gags)
 	manager.battle_ui.s_gags_updated.emit(outgoing_gags)
 

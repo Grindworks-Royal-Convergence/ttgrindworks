@@ -13,6 +13,7 @@ func _init() -> void:
 	# Add extensions
 	install_script_extensions()
 	install_script_hook_files()
+	_add_global_class()
 
 func install_script_extensions() -> void:
 	extensions_dir_path = mod_dir_path.path_join("extensions")
@@ -20,6 +21,11 @@ func install_script_extensions() -> void:
 func install_script_hook_files() -> void:
 	extensions_dir_path = mod_dir_path.path_join("extensions")
 	#ModLoaderMod.install_script_hooks("res://objects/globals/item_service.gd", extensions_dir_path.path_join("objects/globals/item_service.hooks.gd"))
+
+func _add_global_class() -> void:
+	var global_instance = load("res://mods-unpacked/buckstrom-kptc_otto/kptc_global.gd").new()
+	global_instance.name = "KPTCglobal"
+	add_child(global_instance)
 
 func _ready() -> void:
 	ModLoaderLog.info("Attempting to inject character.", KPTC_OTTO_LOG)
