@@ -11,7 +11,7 @@ extends ToonAttack
 @export var sfx_blast: AudioStream
 
 var animations: Dictionary[String, String] = {
-	"Joybuzzer": "squirt-gun",
+	"Joybuzzer": "water-gun",
 	"Balloon": "spit",
 	"Kart Battery": "pie-throw",
 	"Taser": "shout",
@@ -87,7 +87,6 @@ func action():
 				target: jump_damage
 			}
 			for j in range(zap_jumps):
-				jump_damage += jump_decay
 				for i in search_indices:
 					var i_relative = i + cog_index
 					if (i_relative < 0) or (i_relative >= manager.cogs.size()):
@@ -103,6 +102,7 @@ func action():
 					jump_target = i_relative
 					break
 				if jump_target > -1:
+					jump_damage += jump_decay
 					hit_targets.set(manager.cogs[jump_target], jump_damage)
 					var new_status = jumped_status.duplicate()
 					new_status.target = manager.cogs[jump_target]
