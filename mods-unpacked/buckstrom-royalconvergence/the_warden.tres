@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=23 format=3 uid="uid://0h18rue3xjr2"]
+
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_qtycg"]
+[ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="3_q8fs7"]
+[ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="4_uui6k"]
+[ext_resource type="Texture2D" uid="uid://v0n7tknvy2jk" path="res://models/toon/textures/clothes/shorts/desat_shorts_10_2.png" id="5_upvbp"]
+[ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="6_yclei"]
+[ext_resource type="Texture2D" uid="uid://cay1lnxu70p8s" path="res://models/toon/textures/clothes/shirts/desat_shirt_17.png" id="7_iyu44"]
+[ext_resource type="Script" uid="uid://dfqwh4jmdy0iw" path="res://objects/toon/clothing/toon_shirt.gd" id="7_wx3r1"]
+[ext_resource type="Texture2D" uid="uid://dp1mwoshkp6pb" path="res://models/toon/textures/clothes/shirts/desat_sleeve_2_1.png" id="8_bmb2h"]
+[ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="10_bo6p8"]
+[ext_resource type="Resource" uid="uid://dvxiqtapdvmj4" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/squirt.tres" id="11_smtdo"]
+[ext_resource type="Resource" uid="uid://cvaos6ucteefy" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/sound.tres" id="12_bmb2h"]
+[ext_resource type="Resource" uid="uid://dkkox0g4xki41" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/battle/battle_resources/gag_loadouts/gag_tracks/zap.tres" id="14_00dmo"]
+[ext_resource type="Resource" uid="uid://lf7h5xkbt2op" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/drop.tres" id="16_5q414"]
+[ext_resource type="Script" uid="uid://ckypnf7t805p3" path="res://objects/battle/battle_resources/gag_loadouts/gag_loadout.gd" id="17_1ea03"]
+[ext_resource type="Resource" uid="uid://1aaifqwofxqh" path="res://mods-unpacked/buckstrom-royalconvergence/zap/warden_setup.tres" id="17_iyu44"]
+[ext_resource type="Resource" uid="uid://d4nsekncalswu" path="res://objects/items/resources/active/sandwich.tres" id="17_ti5ox"]
+[ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="18_1j4iw"]
+
+[sub_resource type="Resource" id="Resource_jj61k"]
+script = ExtResource("3_q8fs7")
+max_turns = 4
+turns = 2
+
+[sub_resource type="Resource" id="Resource_ugrs1"]
+script = ExtResource("4_uui6k")
+texture = ExtResource("5_upvbp")
+
+[sub_resource type="Resource" id="Resource_2lryd"]
+script = ExtResource("7_wx3r1")
+shirt_texture = ExtResource("7_iyu44")
+sleeve_texture = ExtResource("8_bmb2h")
+sleeve_color = Color(0.7403764, 0.745062, 0.80522734, 1)
+
+[sub_resource type="Resource" id="Resource_qtycg"]
+script = ExtResource("6_yclei")
+body_type = 1
+leg_type = 2
+species = 7
+head_index = 2
+eyelashes = false
+head_color = Color(0.92, 0.8706267, 0.49679998, 1)
+torso_color = Color(0.2924, 0.31223333, 0.34, 1)
+leg_color = Color(0.23220001, 0.24795002, 0.27, 1)
+shirt = SubResource("Resource_2lryd")
+bottoms = SubResource("Resource_ugrs1")
+
+[sub_resource type="Resource" id="Resource_ti5ox"]
+script = ExtResource("17_1ea03")
+loadout = Array[ExtResource("10_bo6p8")]([ExtResource("11_smtdo"), ExtResource("12_bmb2h"), ExtResource("14_00dmo"), ExtResource("16_5q414")])
+
+[resource]
+script = ExtResource("18_1j4iw")
+character_name = "The Warden"
+character_summary = "Only carries four gag tracks
++3 Gag point cap 
++2 Zap gag point boost"
+character_blurb = "X, dash, X...? It's all morse to me. To the Warden, though? They've got shocks down to a science."
+dna = SubResource("Resource_qtycg")
+gag_loadout = SubResource("Resource_ti5ox")
+starting_items = Array[ExtResource("1_qtycg")]([ExtResource("17_iyu44"), ExtResource("17_ti5ox")])
+base_stats = SubResource("Resource_jj61k")
+starting_gags = Dictionary[String, int]({
+"Drop": 1,
+"Sound": 1,
+"Squirt": 1,
+"Zap": 1
+})
+additional_stats = Dictionary[String, Variant]({
+"luck": 1.05
+})

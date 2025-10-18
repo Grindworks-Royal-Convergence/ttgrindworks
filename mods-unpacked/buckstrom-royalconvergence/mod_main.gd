@@ -73,5 +73,10 @@ func _ready() -> void:
 	ModLoaderLog.info("Ready", LOG_NAME)
 
 	ModLoaderLog.info("Attempting to inject character.", LOG_NAME)
-	var character_path: String = ModLoaderMod.get_unpacked_dir().path_join(MOD_DIR).path_join("flippy_2.tres")
-	Globals.ADDITIONAL_TOON_PATHS.append(character_path)
+	var character_resources = [
+		"flippy_2",
+		"the_warden"
+	]
+	for resource in character_resources:
+		var character_path: String = ModLoaderMod.get_unpacked_dir().path_join(MOD_DIR).path_join("%s.tres" % resource)
+		Globals.ADDITIONAL_TOON_PATHS.append(character_path)

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Track" load_steps=20 format=3 uid="uid://dkkox0g4xki41"]
+[gd_resource type="Resource" script_class="Track" load_steps=24 format=3 uid="uid://dkkox0g4xki41"]
 
 [ext_resource type="Script" uid="uid://cwnjrxjvy5kc3" path="res://objects/battle/battle_resources/toon_attacks/toon_attack.gd" id="1_a8xn2"]
 [ext_resource type="Texture2D" uid="uid://qfgvhf5t447g" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/ui_assets/battle/gags/inventory_joybuzzer.png" id="2_apfr1"]
+[ext_resource type="PackedScene" uid="uid://bmod5poikwdii" path="res://models/props/gags/safe/safe.glb" id="3_4nij4"]
 [ext_resource type="Script" uid="uid://bvmvbkohec8iv" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/battle/battle_resources/toon_attacks/gag_zap.gd" id="3_ayuob"]
 [ext_resource type="PackedScene" uid="uid://40avs48mfxix" path="res://models/cogs/heads/Livewire.fbx" id="3_tbsrt"]
 [ext_resource type="Texture2D" uid="uid://e1fanrm3sw5e" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/ui_assets/battle/gags/inventory_balloon.png" id="4_tbsrt"]
@@ -10,140 +11,73 @@
 [ext_resource type="Texture2D" uid="uid://sngeu4sfvpai" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/ui_assets/battle/gags/inventory_taser.png" id="6_07e7d"]
 [ext_resource type="Texture2D" uid="uid://bvmumas56iacd" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/ui_assets/battle/gags/inventory_brokentelevision.png" id="7_i3iy8"]
 [ext_resource type="Texture2D" uid="uid://coiuq0i33mrim" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/ui_assets/battle/gags/inventory_tesla.png" id="8_4nij4"]
+[ext_resource type="PackedScene" uid="uid://56cye21p077f" path="res://models/cogs/heads/GoldenGoose.glb" id="9_ek6id"]
 [ext_resource type="Texture2D" uid="uid://s5b2oqxpinyw" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/ui_assets/battle/gags/inventory_lightning.png" id="9_mvay6"]
+[ext_resource type="PackedScene" uid="uid://cw1uc2h671fc0" path="res://models/props/gags/button/toon_button.fbx" id="12_5ty8t"]
+[ext_resource type="AudioStream" uid="uid://bbsqfddxfxomu" path="res://mods-unpacked/buckstrom-royalconvergence/zap/AA_lightning.ogg" id="13_07e7d"]
 [ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="30_e1kjp"]
 
 [sub_resource type="Resource" id="Resource_ek6id"]
 script = ExtResource("3_ayuob")
-model = ExtResource("3_tbsrt")
-position = null
-rotation = null
-scale = null
-anim_delay = null
+model = ExtResource("3_4nij4")
 sfx_blast = ExtResource("5_tbsrt")
-zap_jumps = null
-jump_range = null
 icon = ExtResource("2_apfr1")
-damage = 9
-target_type = null
+damage = 8
 action_name = "Joybuzzer"
-one_time_use = null
-crit_chance_mod = null
-action_tags = null
 metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
 
 [sub_resource type="Resource" id="Resource_7djf7"]
 script = ExtResource("3_ayuob")
 model = ExtResource("3_tbsrt")
-position = null
-rotation = null
-scale = null
-anim_delay = null
 sfx_blast = ExtResource("5_tbsrt")
-zap_jumps = null
-jump_range = null
 icon = ExtResource("4_tbsrt")
-damage = 12
-target_type = null
+damage = 20
 action_name = "Balloon"
-one_time_use = null
-crit_chance_mod = null
-action_tags = null
 metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
 
 [sub_resource type="Resource" id="Resource_kcc44"]
 script = ExtResource("3_ayuob")
-model = ExtResource("3_tbsrt")
-position = null
-rotation = null
-scale = null
-anim_delay = null
+model = ExtResource("9_ek6id")
 sfx_blast = ExtResource("5_tbsrt")
-zap_jumps = null
-jump_range = null
 icon = ExtResource("5_5ty8t")
-damage = 20
-target_type = null
+damage = 28
 action_name = "Kart Battery"
-one_time_use = null
-crit_chance_mod = null
-action_tags = null
 metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
 
 [sub_resource type="Resource" id="Resource_imomu"]
 script = ExtResource("3_ayuob")
-model = ExtResource("3_tbsrt")
-position = null
-rotation = null
-scale = null
-anim_delay = null
+model = ExtResource("3_4nij4")
 sfx_blast = ExtResource("5_tbsrt")
-zap_jumps = null
-jump_range = null
 icon = ExtResource("6_07e7d")
-damage = 48
-target_type = null
+damage = 36
 action_name = "Taser"
-one_time_use = null
-crit_chance_mod = null
-action_tags = null
 metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
 
 [sub_resource type="Resource" id="Resource_l6h6k"]
 script = ExtResource("3_ayuob")
-model = ExtResource("3_tbsrt")
-position = null
-rotation = null
-scale = null
-anim_delay = null
+model = ExtResource("12_5ty8t")
 sfx_blast = ExtResource("5_tbsrt")
-zap_jumps = null
-jump_range = null
 icon = ExtResource("7_i3iy8")
-damage = 80
-target_type = null
+damage = 60
 action_name = "Broken Television"
-one_time_use = null
-crit_chance_mod = null
-action_tags = null
 metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
 
 [sub_resource type="Resource" id="Resource_16tvm"]
 script = ExtResource("3_ayuob")
-model = ExtResource("3_tbsrt")
-position = null
-rotation = null
-scale = null
-anim_delay = null
+model = ExtResource("12_5ty8t")
 sfx_blast = ExtResource("5_tbsrt")
-zap_jumps = null
-jump_range = null
 icon = ExtResource("8_4nij4")
-damage = 132
-target_type = null
+damage = 99
 action_name = "Tesla Coil"
-one_time_use = null
-crit_chance_mod = null
-action_tags = null
 metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
 
 [sub_resource type="Resource" id="Resource_4dk4u"]
 script = ExtResource("3_ayuob")
-model = ExtResource("3_tbsrt")
-position = null
-rotation = null
-scale = null
-anim_delay = null
-sfx_blast = ExtResource("5_tbsrt")
-zap_jumps = null
-jump_range = null
+model = ExtResource("12_5ty8t")
+sfx_blast = ExtResource("13_07e7d")
 icon = ExtResource("9_mvay6")
-damage = 160
-target_type = null
+damage = 120
 action_name = "Lightning"
-one_time_use = null
-crit_chance_mod = null
-action_tags = null
 metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
 
 [resource]

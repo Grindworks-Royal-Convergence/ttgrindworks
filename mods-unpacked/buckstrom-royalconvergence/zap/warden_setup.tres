@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://1aaifqwofxqh"]
+
+[ext_resource type="Script" uid="uid://cx744r60apuml" path="res://mods-unpacked/buckstrom-royalconvergence/zap/item_warden_setup.gd" id="1_o7v7y"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_7joyg"]
+
+[resource]
+script = ExtResource("2_7joyg")
+item_name = "Warden Setup"
+item_script = ExtResource("1_o7v7y")
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+metadata/_custom_type_script = "uid://combwqypom1ru"

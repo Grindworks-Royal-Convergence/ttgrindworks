@@ -10,9 +10,19 @@ extends ToonAttack
 @export var sfx_windup: AudioStream
 @export var sfx_blast: AudioStream
 
+var animations: Dictionary[String, String] = {
+	"Joybuzzer": "squirt-gun",
+	"Balloon": "spit",
+	"Kart Battery": "pie-throw",
+	"Taser": "shout",
+	"Broken Television": "press-button",
+	"Tesla Coil": "press-button",
+	"Lightning": "press-button"
+}
+
 var zap_jumps = 2
 var jump_range = 2
-var jump_decay = -0.25
+var jump_decay = -(1.0 / 6.0)
 var direction := -1
 
 var do_knockback := false
@@ -27,17 +37,20 @@ func action():
 		user.face_position(main_target.global_position)
 	else:
 		user.face_position(manager.battle_node.global_position)
-	user.set_animation('shout')
+	var anim = 'shout'
+	if action_name in animations: anim = animations[action_name]
+	user.set_animation(anim)
 	manager.s_focus_char.emit(user)
 	
 	# Add the megaphone
-	var megaphone: Node3D = load("res://models/props/gags/megaphone/megaphone.tscn").instantiate()
-	user.toon.right_hand_bone.add_child(megaphone)
-	megaphone.rotation_degrees += Vector3(0.0, 180.0, 0.0)
+	#var megaphone: Node3D = load("res://models/props/gags/megaphone/megaphone.tscn").instantiate()
+	#user.toon.right_hand_bone.add_child(megaphone)
+	#megaphone.rotation_degrees += Vector3(0.0, 180.0, 0.0)
 	
-	# Add gag to megaphone
+	# Add gag
 	var gag = model.instantiate()
-	megaphone.add_child(gag)
+	user.toon.right_hand_bone.add_child(gag)
+	#megaphone.add_child(gag)
 	# Transform the model
 	gag.position = position
 	gag.rotation_degrees = rotation
@@ -133,7 +146,7 @@ func action():
 	if user.get_animation() == 'shout':
 		await manager.barrier(user.animator.animation_finished, 4.0)
 	
-	megaphone.queue_free()
+	gag.queue_free()
 
 func sfx_track():
 	await manager.sleep(1.0)
@@ -164,12 +177,13 @@ func get_main_damage_str() -> String:
 	return get_true_damage()
 
 func get_jump_damage_str() -> String:
-	return "%s, %s" % [get_true_damage(0.75), get_true_damage(0.5)]
+	return "%s, %s" % [get_true_damage(1 + (jump_decay * 1)), get_true_damage(1 + (jump_decay * 2))]
 	
 func do_react_animation(target: Cog) -> void:
 	if not target.lured or not do_knockback:
-		target.set_animation('flailing')
-		target.animator.seek(0.7)
+		target.set_animation('anvil-drop')
+		#target.animator.seek(1.0)
+		#target.animator.speed_scale = -1
 		do_dizzy_stars(target)
 	elif not get_immunity(target):
 		manager.knockback_cog(target)

@@ -24,5 +24,5 @@ func battle_setup_zap(_manager):
 	BattleService.s_battle_ended.connect(battle_end_zap)
 	zap_targets = []
 
-func battle_end_zap(_manager):
+func battle_end_zap():
 	statuses['jumped'].clear()
