@@ -319,7 +319,6 @@ script = ExtResource("14_j8cyf")
 
 [node name="AttackLabel" type="Label" parent="."]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

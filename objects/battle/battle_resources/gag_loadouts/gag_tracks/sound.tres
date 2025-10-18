@@ -37,12 +37,16 @@ model = ExtResource("3_5rs2c")
 position = Vector3(0.995, 0.114, -1.444)
 rotation = Vector3(0, 149.9, 0)
 scale = Vector3(0.625, 0.625, 0.625)
+anim_delay = null
 sfx_windup = ExtResource("6_5smqy")
 sfx_blast = ExtResource("5_algv4")
 icon = ExtResource("2_imaop")
 damage = 6
 target_type = 7
 action_name = "Bike Horn"
+one_time_use = null
+crit_chance_mod = null
+action_tags = null
 
 [sub_resource type="Resource" id="Resource_1lrld"]
 script = ExtResource("4_yqb18")
@@ -57,6 +61,9 @@ icon = ExtResource("7_xnr2d")
 damage = 12
 target_type = 7
 action_name = "Whistle"
+one_time_use = null
+crit_chance_mod = null
+action_tags = null
 
 [sub_resource type="Resource" id="Resource_hif7k"]
 script = ExtResource("4_yqb18")
@@ -64,12 +71,16 @@ model = ExtResource("12_ijr87")
 position = Vector3(1.676, -0.28, -2.665)
 rotation = Vector3(11.8, 142.8, 110)
 scale = Vector3(0.7, 0.7, 0.7)
+anim_delay = null
 sfx_windup = ExtResource("14_w2nj4")
 sfx_blast = ExtResource("13_72j78")
 icon = ExtResource("11_ml1oa")
 damage = 20
 target_type = 7
 action_name = "Bugle"
+one_time_use = null
+crit_chance_mod = null
+action_tags = null
 
 [sub_resource type="Resource" id="Resource_bh76t"]
 script = ExtResource("4_yqb18")
@@ -77,12 +88,16 @@ model = ExtResource("16_p4fck")
 position = Vector3(1.552, -0.055, -2.513)
 rotation = Vector3(-5.2, -28.2, -28)
 scale = Vector3(0.525, 0.525, 0.525)
+anim_delay = null
 sfx_windup = ExtResource("18_kq0ib")
 sfx_blast = ExtResource("17_8cfsv")
 icon = ExtResource("15_5e8bk")
 damage = 34
 target_type = 7
 action_name = "Aoogah"
+one_time_use = null
+crit_chance_mod = null
+action_tags = null
 
 [sub_resource type="Resource" id="Resource_nrnmj"]
 script = ExtResource("4_yqb18")
@@ -90,12 +105,16 @@ model = ExtResource("20_wm63o")
 position = Vector3(1.156, 0.099, -1.468)
 rotation = Vector3(16.7, 139.4, 90)
 scale = Vector3(0.325, 0.325, 0.325)
+anim_delay = null
 sfx_windup = ExtResource("22_prynh")
 sfx_blast = ExtResource("21_63rtj")
 icon = ExtResource("19_6pc21")
 damage = 56
 target_type = 7
 action_name = "Elephant Trunk"
+one_time_use = null
+crit_chance_mod = null
+action_tags = null
 
 [sub_resource type="Resource" id="Resource_rinr7"]
 script = ExtResource("4_yqb18")
@@ -103,12 +122,16 @@ model = ExtResource("24_cs6j1")
 position = Vector3(1.067, 0.213, -1.631)
 rotation = Vector3(0.1, 147.7, 52)
 scale = Vector3(0.475, 0.475, 0.475)
+anim_delay = null
 sfx_windup = ExtResource("26_vt617")
 sfx_blast = ExtResource("25_lsdff")
 icon = ExtResource("23_5s38g")
 damage = 76
 target_type = 7
 action_name = "Fog Horn"
+one_time_use = null
+crit_chance_mod = null
+action_tags = null
 
 [sub_resource type="Resource" id="Resource_e4pdi"]
 script = ExtResource("4_yqb18")
@@ -123,6 +146,9 @@ icon = ExtResource("27_4ye62")
 damage = 100
 target_type = 7
 action_name = "Opera Singer"
+one_time_use = null
+crit_chance_mod = null
+action_tags = null
 
 [resource]
 script = ExtResource("27_mb0m2")

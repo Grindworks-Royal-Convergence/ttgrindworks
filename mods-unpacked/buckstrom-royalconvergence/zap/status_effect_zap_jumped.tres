@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://brtxthdoa7wj"]
+
+[ext_resource type="Script" uid="uid://dso4l7f0kibsp" path="res://mods-unpacked/buckstrom-royalconvergence/zap/status_rc.gd" id="1_jnbbq"]
+
+[resource]
+script = ExtResource("1_jnbbq")
+rc_effect_id = "jumped"
+quality = 1
+rounds = 0
+description = "Cog hit by Zap jump, does not receive further jumps this round"
+status_name = "Zap Jumped"
+id = 53
+metadata/_custom_type_script = "uid://df7irk63ikx4k"

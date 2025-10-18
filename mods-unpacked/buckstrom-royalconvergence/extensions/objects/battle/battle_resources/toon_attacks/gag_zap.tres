@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c5juk2kqoa4xo"]
+
+[ext_resource type="Texture2D" uid="uid://qfgvhf5t447g" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/ui_assets/battle/gags/inventory_joybuzzer.png" id="1_8iekk"]
+[ext_resource type="Script" uid="uid://bvmvbkohec8iv" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/battle/battle_resources/toon_attacks/gag_zap.gd" id="1_suo7v"]
+
+[resource]
+script = ExtResource("1_suo7v")
+icon = ExtResource("1_8iekk")
+action_name = "Joybuzzer"
+metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
