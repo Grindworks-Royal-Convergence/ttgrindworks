@@ -83,5 +83,5 @@ metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
 [resource]
 script = ExtResource("30_e1kjp")
 track_name = "Zap"
-track_color = Color(0.6508584, 0.7152553, 0.21955112, 1)
+track_color = Color(0.9882353, 0.99215686, 0.33333334, 1)
 gags = Array[ExtResource("1_a8xn2")]([SubResource("Resource_ek6id"), SubResource("Resource_7djf7"), SubResource("Resource_kcc44"), SubResource("Resource_imomu"), SubResource("Resource_l6h6k"), SubResource("Resource_16tvm"), SubResource("Resource_4dk4u")])

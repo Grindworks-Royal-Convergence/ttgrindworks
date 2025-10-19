@@ -18,6 +18,19 @@ var mod_dir_path := ""
 var extensions_dir_path := ""
 var translations_dir_path := ""
 
+const EXTENSION_SCRIPT_PATHS : Array[String] = [
+	"res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/global/globals.gd",
+]
+
+const OVERWRITE_FILE_PATHS : Dictionary[String, String] = {
+	"res://objects/battle/battle_resources/gag_loadouts/gag_tracks/trap.tres": "res://mods-unpacked/buckstrom-royalconvergence/overwrites/trap.tres"
+}
+
+var overwrites: Array
+
+const HOOK_SCRIPT_PATHS : Dictionary[String, String] = {
+	"res://objects/battle/battle_ui/gag_track.gd": "res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/battle/battle_ui/gag_track.gd"
+}
 
 # ! your _ready func.
 func _init() -> void:
@@ -26,7 +39,7 @@ func _init() -> void:
 
 	# Add extensions
 	install_script_extensions()
-	#install_script_hook_files()
+	install_script_hook_files()
 	
 	_add_global_class()
 
@@ -37,9 +50,15 @@ func _init() -> void:
 func install_script_extensions() -> void:
 	# ! any script extensions should go in this directory, and should follow the same directory structure as vanilla
 	extensions_dir_path = mod_dir_path.path_join("extensions")
+	for path in EXTENSION_SCRIPT_PATHS:
+		ModLoaderMod.install_script_extension(path)
+	for path in OVERWRITE_FILE_PATHS.keys():
+		var overwrite := load(OVERWRITE_FILE_PATHS[path])
+		overwrite.take_over_path(path)
+		overwrites.append(overwrite)
 
 	# ? Brief description/reason behind this edit of vanilla code...
-	ModLoaderMod.install_script_extension(extensions_dir_path.path_join("main.gd"))
+	#ModLoaderMod.install_script_extension(extensions_dir_path.path_join("main.gd"))
 	#ModLoaderMod.install_script_extension(ext_dir + "entities/units/player/player.gd") # ! Note that this file does not exist in this example mod
 
 	# ! Add extensions (longform version of the above)
@@ -48,8 +67,10 @@ func install_script_extensions() -> void:
 
 
 func install_script_hook_files() -> void:
-	extensions_dir_path = mod_dir_path.path_join("extensions")
-	ModLoaderMod.install_script_hooks("res://main.gd", extensions_dir_path.path_join("main.gd"))
+	for path in HOOK_SCRIPT_PATHS.keys():
+		ModLoaderMod.install_script_hooks(path, HOOK_SCRIPT_PATHS[path])
+	#extensions_dir_path = mod_dir_path.path_join("extensions")
+	#ModLoaderMod.install_script_hooks("res://main.gd", extensions_dir_path.path_join("main.gd"))
 
 
 func add_translations() -> void:
