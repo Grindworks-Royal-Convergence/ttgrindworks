@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="Track" load_steps=18 format=3 uid="uid://cn4b8xvwxvm8j"]
+
+[ext_resource type="Script" uid="uid://cwnjrxjvy5kc3" path="res://objects/battle/battle_resources/toon_attacks/toon_attack.gd" id="1_gk8fh"]
+[ext_resource type="Resource" uid="uid://cvg6c0jy8enf" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/battle/battle_resources/toon_attacks/gag_spin.tres" id="2_xsmsb"]
+[ext_resource type="Texture2D" uid="uid://b8f7v5pycf4rc" path="res://mods-unpacked/buckstrom-royalconvergence/spin/Pinwheel_Gag.png" id="3_d34u7"]
+[ext_resource type="PackedScene" uid="uid://bmod5poikwdii" path="res://models/props/gags/safe/safe.glb" id="4_icsgo"]
+[ext_resource type="Script" uid="uid://jd1lkamv8vcq" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/battle/battle_resources/toon_attacks/gag_spin.gd" id="5_wow5n"]
+[ext_resource type="Texture2D" uid="uid://dgluvyg5j61jl" path="res://mods-unpacked/buckstrom-royalconvergence/spin/Umbrella_Gag.png" id="6_rjxik"]
+[ext_resource type="Texture2D" uid="uid://085act4p0mnm" path="res://mods-unpacked/buckstrom-royalconvergence/spin/Fan_Gag.png" id="7_8gl01"]
+[ext_resource type="Texture2D" uid="uid://5awnwxiokpxh" path="res://mods-unpacked/buckstrom-royalconvergence/spin/Merry-Go-Round_Gag.png" id="8_tw8hb"]
+[ext_resource type="Texture2D" uid="uid://cq8heic7q3jil" path="res://mods-unpacked/buckstrom-royalconvergence/spin/Whirlpool_Gag.png" id="9_wow5n"]
+[ext_resource type="Texture2D" uid="uid://rvan3qjnmpya" path="res://mods-unpacked/buckstrom-royalconvergence/spin/Toonado_gag.png" id="10_rjxik"]
+[ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="32_asg2q"]
+
+[sub_resource type="Resource" id="Resource_433qt"]
+script = ExtResource("5_wow5n")
+model = ExtResource("4_icsgo")
+anim_delay = 0.0
+icon = ExtResource("3_d34u7")
+damage = 6
+action_name = "Pinwheel"
+metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
+
+[sub_resource type="Resource" id="Resource_aqk37"]
+script = ExtResource("5_wow5n")
+model = ExtResource("4_icsgo")
+anim_delay = 0.0
+icon = ExtResource("6_rjxik")
+damage = 12
+action_name = "Umbrella"
+metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
+
+[sub_resource type="Resource" id="Resource_awwkm"]
+script = ExtResource("5_wow5n")
+model = ExtResource("4_icsgo")
+anim_delay = 0.0
+icon = ExtResource("7_8gl01")
+damage = 20
+action_name = "Fan"
+metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
+
+[sub_resource type="Resource" id="Resource_dt7f3"]
+script = ExtResource("5_wow5n")
+model = ExtResource("4_icsgo")
+anim_delay = 0.0
+icon = ExtResource("8_tw8hb")
+damage = 30
+action_name = "Merry-Go-Round"
+metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
+
+[sub_resource type="Resource" id="Resource_p38d0"]
+script = ExtResource("5_wow5n")
+model = ExtResource("4_icsgo")
+anim_delay = 0.0
+icon = ExtResource("9_wow5n")
+damage = 45
+action_name = "Whirlpool"
+metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
+
+[sub_resource type="Resource" id="Resource_mkn21"]
+script = ExtResource("5_wow5n")
+model = ExtResource("4_icsgo")
+anim_delay = 0.0
+icon = ExtResource("10_rjxik")
+damage = 66
+action_name = "Toonado"
+metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"
+
+[resource]
+script = ExtResource("32_asg2q")
+track_name = "Spin"
+track_color = Color(0.8156863, 0.7490196, 0.8745098, 1)
+gags = Array[ExtResource("1_gk8fh")]([ExtResource("2_xsmsb"), SubResource("Resource_433qt"), SubResource("Resource_aqk37"), SubResource("Resource_awwkm"), SubResource("Resource_dt7f3"), SubResource("Resource_p38d0"), SubResource("Resource_mkn21")])

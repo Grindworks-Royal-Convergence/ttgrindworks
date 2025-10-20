@@ -29,7 +29,12 @@ const OVERWRITE_FILE_PATHS : Dictionary[String, String] = {
 var overwrites: Array
 
 const HOOK_SCRIPT_PATHS : Dictionary[String, String] = {
-	"res://objects/battle/battle_ui/gag_track.gd": "res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/battle/battle_ui/gag_track.gd"
+	"res://objects/battle/battle_ui/gag_track.gd": "res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/battle/battle_ui/gag_track.gd",
+	"res://objects/battle/battle_ui/item_panel.gd": "res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/battle/battle_ui/item_panel.gd",
+}
+
+var util_paths: Dictionary[String, String] = {
+	"SpinUtil": "res://mods-unpacked/buckstrom-royalconvergence/spin/spin_util.gd"
 }
 
 # ! your _ready func.
@@ -42,6 +47,7 @@ func _init() -> void:
 	install_script_hook_files()
 	
 	_add_global_class()
+	_add_child_class()
 
 	# Add translations
 	#add_translations()
@@ -89,6 +95,11 @@ func _add_global_class() -> void:
 	global_instance.name = "RCglobal"
 	add_child(global_instance)
 
+func _add_child_class() -> void:
+	for util in util_paths.keys():
+		var instance = load(util_paths[util]).new()
+		instance.name = util
+		add_child(instance)
 
 func _ready() -> void:
 	ModLoaderLog.info("Ready", LOG_NAME)

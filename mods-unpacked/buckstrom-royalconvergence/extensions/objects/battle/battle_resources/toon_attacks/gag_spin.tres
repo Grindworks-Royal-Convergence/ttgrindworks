@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cvg6c0jy8enf"]
+
+[ext_resource type="Texture2D" uid="uid://sua1co4eemgi" path="res://mods-unpacked/buckstrom-royalconvergence/spin/Inventory_spinner.png" id="1_fslqh"]
+[ext_resource type="PackedScene" uid="uid://bmod5poikwdii" path="res://models/props/gags/safe/safe.glb" id="2_qvu4t"]
+[ext_resource type="Script" uid="uid://jd1lkamv8vcq" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/battle/battle_resources/toon_attacks/gag_spin.gd" id="2_ttpkx"]
+
+[resource]
+script = ExtResource("2_ttpkx")
+model = ExtResource("2_qvu4t")
+anim_delay = 0.0
+icon = ExtResource("1_fslqh")
+damage = 3
+action_name = "Spinning Top"
+metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"

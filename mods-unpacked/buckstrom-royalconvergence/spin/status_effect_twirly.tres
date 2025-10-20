@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dc7vyo7jjgc6"]
+
+[ext_resource type="Script" uid="uid://dj77mmchvscrw" path="res://mods-unpacked/buckstrom-royalconvergence/spin/status_effect_twirly.gd" id="1_kvyl8"]
+
+[resource]
+script = ExtResource("1_kvyl8")
+instant_effect = false
+quality = 1
+rounds = 2
+description = ""
+id = 3

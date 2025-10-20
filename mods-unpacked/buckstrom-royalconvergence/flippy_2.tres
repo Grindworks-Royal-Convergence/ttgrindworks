@@ -19,11 +19,10 @@
 [ext_resource type="Script" uid="uid://ckypnf7t805p3" path="res://objects/battle/battle_resources/gag_loadouts/gag_loadout.gd" id="12_wdxek"]
 [ext_resource type="Resource" uid="uid://ci7shc77lxvwr" path="res://objects/items/resources/passive/flippy_setup.tres" id="13_7djpg"]
 [ext_resource type="Resource" uid="uid://dqldfsmn7g606" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/lure.tres" id="13_a5lw6"]
-[ext_resource type="Resource" uid="uid://lf7h5xkbt2op" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/drop.tres" id="16_pmiby"]
+[ext_resource type="Resource" uid="uid://cn4b8xvwxvm8j" path="res://mods-unpacked/buckstrom-royalconvergence/extensions/objects/battle/battle_resources/gag_loadouts/gag_tracks/spin.tres" id="16_vv2nr"]
 
 [sub_resource type="Resource" id="Resource_jj61k"]
 script = ExtResource("3_savac")
-turns = 2
 
 [sub_resource type="Resource" id="Resource_ugrs1"]
 script = ExtResource("4_vp14m")
@@ -51,7 +50,7 @@ bottoms = SubResource("Resource_ugrs1")
 
 [sub_resource type="Resource" id="Resource_rn3cu"]
 script = ExtResource("12_wdxek")
-loadout = Array[ExtResource("10_rn3cu")]([ExtResource("11_vv2nr"), ExtResource("12_da61b"), ExtResource("13_a5lw6"), ExtResource("11_6134t"), ExtResource("11_wdxek"), ExtResource("16_pmiby")])
+loadout = Array[ExtResource("10_rn3cu")]([ExtResource("11_vv2nr"), ExtResource("12_da61b"), ExtResource("13_a5lw6"), ExtResource("11_6134t"), ExtResource("11_wdxek"), ExtResource("16_vv2nr")])
 
 [resource]
 script = ExtResource("11_65gqs")
@@ -65,7 +64,7 @@ starting_laff = 30
 starting_items = Array[ExtResource("1_hrrtd")]([ExtResource("12_b8ypt"), ExtResource("13_7djpg")])
 base_stats = SubResource("Resource_jj61k")
 starting_gags = Dictionary[String, int]({
-"Throw": 1,
+"Spin": 1,
 "Zap": 1
 })
 additional_stats = Dictionary[String, Variant]({

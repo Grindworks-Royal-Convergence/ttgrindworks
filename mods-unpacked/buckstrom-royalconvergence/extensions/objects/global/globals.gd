@@ -7,7 +7,8 @@ const RC_GAGTRACK_COLORS := {
 	"Sound": Color("4f63d5ff"),
 	"Throw": Color("ed8a42ff"),
 	"Drop": Color("35f4ffff"),
-	"Zap": Color("fcfd55ff")
+	"Zap": Color("fcfd55ff"),
+	"Spin": Color(0.816, 0.749, 0.875, 1.0)
 }
 
 # only god has witnessed what events resulted in the deranged original function
